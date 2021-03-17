@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>留言发布删除</title>
+    <style>
+        input {
+            width: 100px;
+            height: 200px;
+            border: 1px solid skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content_box">
+        <input class="message_box">
+        <button>发布</button>
+    </div>
+    <ul>
+
+    </ul>
+    <script>
+        var ipu = document.querySelector('input'),
+            btn = document.querySelector('button'),
+            ul = document.querySelector('ul');
+
+        btn.onclick = function () {
+            var ipuValue = ipu.value;
+            var li = document.createElement('li');
+            li.innerHTML = ipuValue + '<a href="#">删除</a>';
+            ul.insertBefore(li, ul.children[0]);
+            var delBtns = document.querySelectorAll('a');
+            for (var i = 0; i < delBtns.length; i++) {
+                delBtns[i].onclick = function () {
+                    ul.removeChild(this.parentNode);
+                }
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>
